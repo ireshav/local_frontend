@@ -1,0 +1,51 @@
+/* Basic design + small animations */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#06b6d4;
+  --muted:#94a3b8;
+}
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071226 0%, #0f1724 100%);color:#e6eef6;min-height:100vh}
+
+/* Navbar */
+.navbar{background:linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));backdrop-filter:blur(6px);padding:12px 20px;position:sticky;top:0;z-index:40}
+.navbar-inner{display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto}
+.brand{color:var(--accent);font-weight:700;text-decoration:none;font-size:1.15rem}
+.nav-links{display:flex;gap:12px}
+.nav-link{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px}
+.nav-link:hover{background:rgba(255,255,255,0.03);color:#fff;transform:translateY(-2px);transition:all 180ms ease}
+
+/* Hero */
+.hero{padding:48px 20px;display:flex;justify-content:center}
+.hero-card{max-width:900px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:28px;border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,0.7);text-align:center}
+.search-bar{margin-top:16px}
+.search-bar-input{width:100%;padding:12px 14px;border-radius:10px;border:none;outline:none;background:rgba(255,255,255,0.03);color:inherit}
+
+/* Layout */
+.content{display:grid;grid-template-columns:260px 1fr;gap:20px;max-width:1100px;margin:30px auto;padding:0 20px}
+.sidebar{padding:12px 8px}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+
+/* Provider card */
+.provider-card{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));cursor:pointer;transition:transform 180ms, box-shadow 180ms}
+.provider-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(2,6,23,0.6)}
+.provider-thumb{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+.provider-body h3{margin:0 0 6px 0}
+.meta{color:var(--muted);font-size:0.9rem}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;z-index:100}
+.modal-card{background:var(--card);padding:18px;border-radius:12px;min-width:320px;max-width:520px;animation:pop .18s ease}
+@keyframes pop{from{transform:translateY(8px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+
+/* Buttons */
+.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:inherit;cursor:pointer}
+.btn.primary{background:var(--accent);border:none;color:#021226;padding:8px 12px;border-radius:8px}
+
+/* Responsive */
+@media (max-width:800px){
+  .content{grid-template-columns:1fr;padding:0 14px}
+  .navbar-inner{padding:0 6px}
+}
